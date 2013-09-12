@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CallWall.Web.Providers.Google
+namespace CallWall.Web.GoogleProvider
 {
     public class BatchOperationPage<T>
     {

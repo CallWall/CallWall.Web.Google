@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace CallWall.Web.Providers.Google
+namespace CallWall.Web.GoogleProvider
 {
     public class GoogleContactsProvider : IContactsProvider
     {

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using CallWall.Web.GoogleProvider;
 
-namespace CallWall.Web.Providers.Google
+namespace CallWall.Web.GoogleProvider
 {
     public sealed class GoogleContactProfileTranslator
     {
