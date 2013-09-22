@@ -34,12 +34,18 @@ namespace CallWall.Web.GoogleProvider
 
             return new Uri(uriBuilder.ToString());
         }
+
+        public bool CanCreateSessionFromState(string code, string state)
+        {
+            return AuthState.IsValidOAuthState(state);
+        }
+
         public ISession CreateSession(string code, string state)
         {
-            var client = new HttpClient();
             var authState = AuthState.Deserialize(state);
             var request = CreateTokenRequest(code, authState.RedirectUri);
 
+            var client = new HttpClient();
             var response = client.SendAsync(request);
             var accessTokenResponse = response.Result.Content.ReadAsStringAsync();
             var json = JObject.Parse(accessTokenResponse.Result);
@@ -97,12 +103,29 @@ namespace CallWall.Web.GoogleProvider
 
         private class AuthState
         {
+            private const string _account = "Google";
+
+            public static bool IsValidOAuthState(string state)
+            {
+                var json = JObject.Parse(state);
+
+                JToken account;
+                if (json.TryGetValue("Account", out account))
+                {
+                    if (account.ToString() == _account)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
             public static AuthState Deserialize(string state)
             {
                 return JsonConvert.DeserializeObject<AuthState>(state);
             }
 
-            public string Account { get { return "Google"; } }
+            public string Account { get { return _account; } }
 
             public string RedirectUri { get; set; }
 
@@ -114,6 +137,5 @@ namespace CallWall.Web.GoogleProvider
                 return HttpUtility.UrlEncode(data);
             }
         }
-
     }
 }
