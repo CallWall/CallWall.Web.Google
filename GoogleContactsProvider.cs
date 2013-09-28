@@ -19,14 +19,12 @@ namespace CallWall.Web.GoogleProvider
                 try
                 {
                     var feed = new ContactFeed(session);
-                    o.OnNext(feed);
+                    return Observable.Return(feed).Subscribe(o);
                 }
                 catch (Exception ex)
                 {
-                    o.OnError(ex);
+                    return Observable.Throw<ContactFeed>(ex).Subscribe(o);
                 }
-                
-                return Disposable.Empty;
             });
         }
 
