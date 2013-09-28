@@ -30,21 +30,6 @@ namespace CallWall.Web.GoogleProvider
             });
         }
 
-        
-        //public IObservable<IContactSummary> GetContacts(ISession session)
-        //{
-        //    return Observable.Create<IContactSummary>(o =>
-        //        {
-        //            var pages = GetContactPages(session);
-        //            var query = from page in pages
-        //                        from contact in page.Items
-        //                        select contact;
-        //            return query.Subscribe(o);
-        //        });
-        //}
-
-        
-
         private sealed class ContactFeed : IFeed<IContactSummary>
         {
             private readonly int _totalResults;
@@ -73,12 +58,15 @@ namespace CallWall.Web.GoogleProvider
                 });
             }
 
-            private IEnumerable<BatchOperationPage<IContactSummary>> GetPages(ISession session, BatchOperationPage<IContactSummary> batchPage)
+            private static IEnumerable<BatchOperationPage<IContactSummary>> GetPages(ISession session, BatchOperationPage<IContactSummary> batchPage)
             {
                 yield return batchPage;
                 while (batchPage.NextPageStartIndex > 0)
                 {
-                    Thread.Sleep(1000);  //HACK:Google doesn't like being DOS'ed.
+                    //HACK:Google doesn't like being DOS'ed.
+                    //Thread.Sleep(1000);  //HACK:Google doesn't like being DOS'ed.
+                    Thread.Sleep(500);  
+                    //Thread.Sleep(250);  
                     batchPage = GetContactPage(session, batchPage.NextPageStartIndex);
                     yield return batchPage;
                 }

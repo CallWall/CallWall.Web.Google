@@ -95,6 +95,7 @@ namespace CallWall.Web.GoogleProvider
 
         public BatchOperationPage<IContactSummary> Translate(string response, string accessToken)
         {
+            //response can be non xml i.e. "Temporary problem - please try again later and consider using batch operations. The user is over quota."
             var xDoc = XDocument.Parse(response);
             if (xDoc.Root == null)
                 return null;
