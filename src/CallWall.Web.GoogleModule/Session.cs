@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace CallWall.Web.GoogleProvider
+namespace CallWall.Web.GoogleModule
 {
     public sealed class Session : ISession
     {

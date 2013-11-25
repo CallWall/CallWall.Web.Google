@@ -1,4 +1,4 @@
-﻿namespace CallWall.Web.GoogleProvider
+﻿namespace CallWall.Web.GoogleModule
 {
     public sealed class GoogleModule : IModule
     {

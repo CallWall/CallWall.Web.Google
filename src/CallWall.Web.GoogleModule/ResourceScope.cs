@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
-namespace CallWall.Web.GoogleProvider
+namespace CallWall.Web.GoogleModule
 {
     public sealed class ResourceScope : IResourceScope
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CallWall.Web.GoogleProvider
+namespace CallWall.Web.GoogleModule
 {
     public sealed class AccountConfiguration : IAccountConfiguration
     {
