@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "My Contacts";
+}
+
+<hgroup>
+    <h2>@ViewBag.Title</h2>
+    <label for="q" style="display: inline">Filter:</label>
+    <input id="q" name="q" type="search" autofocus="true" data-bind="value: filterText, valueUpdate: 'afterkeydown'"  />
+</hgroup>
+
+<!--TODO: ensure that the progress bar is briefly animated red onError, before it is hidden -->
+<!--TODO: ensure that the progress bar is briefly animated green onComplete, before it is hidden -->
+<!--TODO: ensure some sort of error message is displayed onError -->
+<div id="progressbar" data-bind="progress: progress, visible: isProcessing"></div>
+<div id="ContactGroupDefListBound" data-bind="template: { name: 'ContactGroupDefTemplate', foreach: contactGroups }"></div>
+
+<script type="text/html" id="ContactGroupDefTemplate">
+    <div class="contact-group" data-bind="visible: isVisible">
+        <h3 data-bind="text: header"></h3>
+        <div id="ContactDefListBound" data-bind="template: { name: 'ContactDefTemplate', foreach: contacts }"></div>
+    </div>
+</script>
+
+<script type="text/html" id="ContactDefTemplate">
+    <div class="contact-card" data-bind="visible: isVisible">
+        <table>
+            <tr>
+                <td rowspan="2" class="avatar-cell">
+                    <img data-bind="attr: { src: primaryAvatar, alt: title }" class="avatar-img" />
+                </td>
+                <td class="title">
+                    <h3 data-bind="text: title"></h3>
+                </td>
+            </tr>
+            <tr>
+                <td style="background: #808080;">
+                    <!-- ko foreach: tags -->
+                    <span class="badge" data-bind="text: $data"></span>
+                    <!-- /ko -->
+                </td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jquerycolor")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/signalR")
+    @Scripts.Render("~/signalR/hubs")
+    @Scripts.Render("~/Scripts/Contacts.Observable.SignalR.js")
+    
+}
+@Styles.Render("~/Content/themes/base/css")
