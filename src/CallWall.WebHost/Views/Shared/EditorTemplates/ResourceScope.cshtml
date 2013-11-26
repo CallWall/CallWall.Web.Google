@@ -1,0 +1,9 @@
+﻿@model CallWall.Web.IResourceScope
+
+<div class="span3">
+    <label>
+        <img src="@Model.Image" alt="@Model.Name" class="resource-scope-icon"/>
+        <input type="checkbox" name="resource" value="@Model.Resource" checked="checked"/>
+        @Html.DisplayFor(scope => scope.Name)
+    </label>
+</div>

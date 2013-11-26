@@ -31,7 +31,7 @@ namespace CallWall.Web.GoogleModule
         private ResourceScope(string name, string image, Uri resource)
         {
             _name = name;
-            _image = new Uri(string.Format("/Content/Images/Google/{0}", image), UriKind.Relative);
+            _image = new Uri(string.Format("/Content/Google/Images/{0}", image), UriKind.Relative);
             _resource = resource;
         }
 

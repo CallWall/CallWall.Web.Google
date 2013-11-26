@@ -11,7 +11,7 @@ namespace CallWall.Web.GoogleModule
         {}
 
         public string Name { get { return "Google"; } }
-        public Uri Image { get { return new Uri("/Content/Images/Google/GoogleIcon.svg", UriKind.Relative); } }
+        public Uri Image { get { return new Uri("/Content/Google/Images/GoogleIcon.svg", UriKind.Relative); } }
         public IEnumerable<IResourceScope> Resources { get { return ResourceScope.AvailableResourceScopes; } }
     }
 }

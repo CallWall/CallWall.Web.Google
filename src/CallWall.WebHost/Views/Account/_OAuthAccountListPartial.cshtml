@@ -1,0 +1,6 @@
+﻿@model IEnumerable<CallWall.Web.IAccountConfiguration>
+
+@foreach (var accountConfig in Model)
+{
+  @Html.DisplayFor(m => accountConfig, "AccountConfiguration")
+} 

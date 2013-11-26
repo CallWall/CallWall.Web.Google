@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h2>Register via your social media accounts.</h2>
+</hgroup>
+
+<!--
+    This should allow you to select one provider. 
+    Once selected, a list of resources should be displayed.
+    From this list, the relevant resources can be selected and submitted.
+    There may be mandatory resources for a provider, and some resources may have dependencies on other resources.
+    -->
+
+<section class="social" id="socialLoginForm">
+    @Html.Action("OAuthProviderList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
