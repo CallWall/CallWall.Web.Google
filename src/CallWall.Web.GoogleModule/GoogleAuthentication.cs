@@ -12,6 +12,16 @@ namespace CallWall.Web.GoogleModule
 {
     public class GoogleAuthentication : IAccountAuthentication
     {
+        private readonly string _clientId;
+        private readonly string _clientSecret;
+
+        public GoogleAuthentication()
+        {
+            var config = GoogleConfigSection.GetConfig();
+            _clientId = config.ClientId;
+            _clientSecret = config.ClientSecret;
+        }
+
         public IAccountConfiguration Configuration { get { return AccountConfiguration.Instance; } }
 
         public Uri AuthenticationUri(string redirectUri, IList<string> scopes)
@@ -26,7 +36,8 @@ namespace CallWall.Web.GoogleModule
             uriBuilder.Append(HttpUtility.UrlEncode(redirectUri));
 
             uriBuilder.Append("&response_type=code");
-            uriBuilder.Append("&client_id=410654176090-8fk01hicm60blfbmjfrfruvpabnvat6s.apps.googleusercontent.com");
+            uriBuilder.Append("&client_id=");
+            uriBuilder.Append(_clientId);
 
             var state = new AuthState { RedirectUri = redirectUri, Scopes = scopes };
             uriBuilder.Append("&state=");
@@ -91,9 +102,9 @@ namespace CallWall.Web.GoogleModule
             var postParameters = new Dictionary<string, string>
             {
                 {"code", code},
-                {"client_id", "410654176090-8fk01hicm60blfbmjfrfruvpabnvat6s.apps.googleusercontent.com"},
+                {"client_id", _clientId},
                 {"redirect_uri", redirectUri},
-                {"client_secret", "cl6V2rzrB0uit3mHDB2jAmnG"},
+                {"client_secret", _clientSecret},
                 {"grant_type", "authorization_code"}
             };
 

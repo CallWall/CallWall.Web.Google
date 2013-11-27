@@ -15,4 +15,7 @@
     <copyright>Copyright 2013</copyright>
     <tags>CallWall Google</tags>
   </metadata>
+  <files>
+    <file src="Web.config.transform" target="Content"/>
+  </files>
 </package>

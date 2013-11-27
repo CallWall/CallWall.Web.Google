@@ -6,6 +6,8 @@
         {
             registry.RegisterType<IContactsProvider, GoogleContactsProvider>();
             registry.RegisterType<IAccountAuthentication, GoogleAuthentication>("GoogleAuthentication");
+
+            GoogleConfigSection.EnsureIsValid();
         }
     }
 }

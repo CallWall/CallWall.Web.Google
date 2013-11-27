@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="CallWallModules" type="CallWall.Web.CallWallModuleSection, CallWall.Web.Core" />
+    <section name="GoogleConfig" type="CallWall.Web.GoogleModule.GoogleConfigSection, CallWall.Web.GoogleModule" />
+  </configSections>
+  
+  <CallWallModules>
+    <modules>
+      <module type="CallWall.Web.GoogleModule.GoogleModule, CallWall.Web.GoogleModule" />
+    </modules>
+  </CallWallModules>
+  
+  <GoogleConfig
+       clientId=""
+       clientSecret=""/>
+</configuration>
