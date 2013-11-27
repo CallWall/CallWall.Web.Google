@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Package" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- User defined properties-->
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>.\</MSBuildCommunityTasksPath>
+    <BUILD_NUMBER Condition="'$(BUILD_NUMBER)'==''">0.0.0.1</BUILD_NUMBER>
+    <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Projects Include=".\src\CallWall.Web.GoogleModule\CallWall.Web.GoogleModule.csproj"/>
+  </ItemGroup>
+
+  <Import Project=".\tools\MSBuild.Community.Tasks.Targets" />
+
+  <PropertyGroup>
+    <OutputDirectory>.\bin\$(Configuration)</OutputDirectory>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+
+
+  <!-- User targets -->
+  <Target Name="Clean">
+  </Target>
+
+  <Target Name="Version">
+    <AssemblyInfo CodeLanguage="CS"
+                  OutputFile=".\src\SharedAssemblyInfo.cs"
+                  AssemblyVersion="$(BUILD_NUMBER)"
+                  AssemblyFileVersion="$(BUILD_NUMBER)"
+                  AssemblyCompany="CallWall Operations Ltd"
+                  AssemblyProduct="CallWall Web"
+                  AssemblyCopyright="Copyright © CallWall Operations Ltd 2013"
+                />
+  </Target>
+
+  <Target Name="Compile" DependsOnTargets="Clean; Version">
+    <MSBuild Projects="@(Projects)"
+             Properties="Configuration=$(Configuration)" >
+    </MSBuild>
+  </Target>
+
+  <Target Name="Package" DependsOnTargets="Compile">
+    <Exec WorkingDirectory=".\src\CallWall.Web.GoogleModule\"
+          Command="..\..\.nuget\nuget pack CallWall.Web.GoogleModule.csproj -IncludeReferencedProjects -Prop Configuration=$(Configuration)" />
+
+  </Target>
+</Project>

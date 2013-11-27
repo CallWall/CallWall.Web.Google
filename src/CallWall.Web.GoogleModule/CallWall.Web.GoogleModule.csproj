@@ -70,6 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AccountConfiguration.cs" />
     <Compile Include="BatchOperationPage.cs" />
     <Compile Include="ContactSummary.cs" />
@@ -82,7 +85,10 @@
     <Compile Include="Session.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="CallWall.Web.GoogleModule.nuspec" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Google\images\Contacts_48x48.png" />
@@ -92,7 +98,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY /s /e /i /h $(ProjectDir)content\google $(ProjectDir)..\CallWall.WebHost\Content\Google</PostBuildEvent>
+    <PostBuildEvent>XCOPY /s /e /i /h /y $(ProjectDir)content\google $(ProjectDir)..\CallWall.WebHost\Content\Google</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

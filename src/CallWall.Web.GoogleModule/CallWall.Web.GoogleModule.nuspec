@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/CallWall/CallWall.Web.Google</projectUrl>
+    <iconUrl>http://leecampbell.github.io/CallWall.Web/images/icons/CallWall.Web.png</iconUrl>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial alpha release.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>CallWall Google</tags>
+  </metadata>
+</package>

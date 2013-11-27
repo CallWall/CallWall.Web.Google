@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallWall.Web.GoogleModule",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallWall.WebHost", "src\CallWall.WebHost\CallWall.WebHost.csproj", "{86874738-479B-4ED8-AA29-4A4CD95DC6ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD29D73E-A2A3-4EE0-87DB-5BA8682DD411}"
+	ProjectSection(SolutionItems) = preProject
+		CallWall.Web.Google.build = CallWall.Web.Google.build
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
