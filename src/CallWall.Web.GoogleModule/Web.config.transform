@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="CallWallModules" type="CallWall.Web.CallWallModuleSection, CallWall.Web.Core" />
+  </configSections>
+  <CallWallModules>
+    <modules>
+      <module type="CallWall.Web.GoogleModule.GoogleModule, CallWall.Web.GoogleModule" />
+    </modules>
+  </CallWallModules>
+</configuration>
