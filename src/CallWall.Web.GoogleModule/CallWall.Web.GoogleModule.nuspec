@@ -16,6 +16,7 @@
     <tags>CallWall Google</tags>
   </metadata>
   <files>
-    <file src="Web.config.transform" target="Content"/>
+    <file src="Web.config.transform" target="content"/>
+    <file src="content\**" target="content\Content"/>
   </files>
 </package>
